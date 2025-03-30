@@ -31,7 +31,7 @@ def is_blank(tile, threshold=240):
     gray = cv2.cvtColor(tile, cv2.COLOR_BGR2GRAY)
     return np.mean(gray) > threshold
 
-def is_similar(img1, img2, threshold=0.4):
+def is_similar(img1, img2, threshold=0.8):
     res = cv2.matchTemplate(img1, img2, cv2.TM_CCOEFF_NORMED)
     val = cv2.minMaxLoc(res)[1]
     if val > threshold:
